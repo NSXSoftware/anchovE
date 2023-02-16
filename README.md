@@ -2,7 +2,7 @@
 # anchovE
 ## Description
 
-This is a command-line tool with multiple functionalities, including backdoor scanning, web shell injection, and library management. The tool also allows the user to select a specific attack type and input necessary information and even load library to help expand your attacks.
+This is a command-line tool with multiple functionalities, including backdoor scanning, web shell injection, and library management. The tool also allows the user to select a specific attack type and even load libraries to help expand your attacks.
 
 ## Dependencies
 
