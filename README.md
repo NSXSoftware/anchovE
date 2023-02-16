@@ -28,7 +28,7 @@ Depending on the attack type you select, the tool will ask you for additional in
 
 ### Backdoor Scanner
 
-If you choose the "Backdoor Scanner" option, the tool will prompt you to enter the target URL. Once you provide the URL, the tool will display the message "Loading Files" and "Scanning" with the target URL.
+If you choose the "Backdoor Scanner" option, the tool will prompt you to enter the target URL. Once you provide the URL, the tool will display the message "Loading Files" and "Scanning" with the target URL. After the tool will scan the URL or Input for places where an backdoor could be injected using SQL,XSS,RCE, and more
 
 ### Web Shell
 
