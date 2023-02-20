@@ -27,8 +27,7 @@ public static class Program
             new SelectionPrompt<string>()
                 .Title("Select Attack Type <°)))><")
              .AddChoices(new[] {
-            "Backdoor Builder", "Backdoor Scanner", "WebShell",
-            "Servers", "Backdoor Injector"
+            "Backdoor Builder", "WebShell", "Backdoor Injector"
                 }));
 
         if (choice == "Backdoor Scanner")
