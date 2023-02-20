@@ -10,8 +10,8 @@ public static class Program
 {
     public static void Main(string[] args)
     {
-
-        string banner = @"
+       
+    string banner = @"
 
                                                          _                ______ 
                                                         | |              |  ____|
@@ -28,8 +28,9 @@ public static class Program
                 .Title("Select Attack Type <°)))><")
              .AddChoices(new[] {
             "Backdoor Builder", "Backdoor Scanner", "WebShell",
-            "Servers", "History", "Backdoor Injector","Library"
+            "Servers", "Backdoor Injector"
                 }));
+
         if (choice == "Backdoor Scanner")
         //----------------------------------------
         {
